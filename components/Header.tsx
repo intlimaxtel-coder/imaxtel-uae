@@ -73,6 +73,7 @@ export const Header: React.FC = () => {
                   width={180}
                   height={50}
                   priority
+                  style={{ width: "auto" }}
                   onError={handleLogoError}
                   className="h-10 xs:h-11 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
@@ -153,6 +154,7 @@ export const Header: React.FC = () => {
                     alt="IMAxtel Logo"
                     width={150}
                     height={40}
+                    style={{ width: "auto" }}
                     onError={handleLogoError}
                     className="h-9 w-auto object-contain"
                   />

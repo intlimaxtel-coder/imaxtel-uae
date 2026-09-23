@@ -207,6 +207,7 @@ export const PlaceholderLogo: React.FC<PlaceholderLogoProps> = ({
           alt={`${name} Logo`}
           width={160}
           height={60}
+          style={{ width: "auto", height: "auto" }}
           onError={() => setImgError(true)}
           className="max-h-full max-w-full object-contain"
         />
