@@ -117,6 +117,7 @@ export const PlaceholderImage: React.FC<PlaceholderImageProps> = ({
           src={localImageSrc}
           alt={alt}
           fill
+          unoptimized
           priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           onError={() => setImgError(true)}

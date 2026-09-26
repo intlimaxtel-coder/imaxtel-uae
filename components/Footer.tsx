@@ -133,10 +133,10 @@ export const Footer: React.FC = () => {
           <h4 className="text-xs font-poppins font-medium tracking-[0.2em] text-primary uppercase mb-6">
             Connect
           </h4>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4">
             <div>
               <span className="text-[10px] text-primary font-poppins uppercase block mb-1">
-                Office & Operations
+                UAE Corporate HQ
               </span>
               <p className="text-xs text-white/70 leading-relaxed font-poppins">
                 {companyData.contact.address.join(", ")}
@@ -144,25 +144,51 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <span className="text-[10px] text-primary font-poppins uppercase block mb-1">
-                Inquiries
+                Kuwait Regional Office
               </span>
-              <a
-                href={`mailto:${companyData.contact.emails[0]}`}
-                className="text-xs text-white/70 hover:text-primary transition-colors font-poppins inline-block"
-              >
-                {companyData.contact.emails[0]}
-              </a>
+              <p className="text-xs text-white/70 leading-relaxed font-poppins">
+                {companyData.contact.kuwaitAddress.join(", ")}
+              </p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div>
+                <span className="text-[10px] text-primary font-poppins uppercase block mb-0.5">
+                  General Inquiries
+                </span>
+                <a
+                  href={`mailto:${companyData.contact.infoEmail}`}
+                  className="text-xs text-white/70 hover:text-primary transition-colors font-poppins inline-block"
+                >
+                  {companyData.contact.infoEmail}
+                </a>
+              </div>
+              <div>
+                <span className="text-[10px] text-primary font-poppins uppercase block mb-0.5">
+                  Careers & HR
+                </span>
+                <a
+                  href={`mailto:${companyData.contact.careersEmail}`}
+                  className="text-xs text-white/70 hover:text-primary transition-colors font-poppins inline-block"
+                >
+                  {companyData.contact.careersEmail}
+                </a>
+              </div>
             </div>
             <div>
               <span className="text-[10px] text-primary font-poppins uppercase block mb-1">
                 Call Us
               </span>
-              <a
-                href={`tel:${companyData.contact.phones[0]}`}
-                className="text-xs text-white/70 hover:text-primary transition-colors font-poppins inline-block"
-              >
-                {companyData.contact.phones[0]}
-              </a>
+              <div className="flex flex-col gap-1">
+                {companyData.contact.phones.map((phone, idx) => (
+                  <a
+                    key={idx}
+                    href={`tel:${phone.replace(/\s+/g, '')}`}
+                    className="text-xs text-white/70 hover:text-primary transition-colors font-poppins inline-block"
+                  >
+                    {phone}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

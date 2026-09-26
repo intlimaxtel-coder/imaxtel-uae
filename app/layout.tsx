@@ -10,26 +10,30 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-poppins",
   display: "swap",
+  fallback: ["system-ui", "arial", "sans-serif"],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "IMAXTEL GOODS WHOLESALERS CO. L.L.C | FMCG Import & Distribution UAE",
-    template: "%s | IMAXTEL GOODS WHOLESALERS CO. L.L.C UAE"
+    default: "IMAXTEL GOODS WHOLESALERS CO. L.L.C | FMCG Import & Distribution UAE & GCC",
+    template: "%s | IMAXTEL GOODS WHOLESALERS CO. L.L.C"
   },
-  description: "IMAXTEL GOODS WHOLESALERS CO. L.L.C is a premier FMCG import, wholesale distribution, and retail group in the UAE & GCC. Supplying premium food, beverages, rice, and household products from Dubai, UAE.",
+  description: "IMAXTEL GOODS WHOLESALERS CO. L.L.C is a premier FMCG import, wholesale distribution, and retail group operating across UAE & Kuwait (GCC). Sourcing premium food, beverages, rice, and household products.",
   keywords: [
     "IMAxtel UAE",
+    "IMAxtel Kuwait",
     "IMAXTEL GOODS WHOLESALERS CO. L.L.C",
     "FMCG Import Dubai",
     "Wholesale Distribution UAE",
     "Goods Wholesalers Dubai",
     "Burj Nahar Mall Dubai",
+    "Al Zibin Complex Salmiya Kuwait",
     "Rice Importers UAE",
     "Malabar Food Stuff",
     "Manila Supermarket UAE",
     "IMAXCLEAN Household",
-    "Logistics & SCM UAE"
+    "Logistics & SCM UAE & GCC"
   ],
   metadataBase: new URL("https://www.imaxtelglobal.ae"),
   alternates: {
@@ -42,10 +46,10 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "IMAXTEL GOODS WHOLESALERS CO. L.L.C UAE | FMCG Leader",
+    title: "IMAXTEL GOODS WHOLESALERS CO. L.L.C UAE & GCC | FMCG Leader",
     description: "Connecting global sourcing with UAE & GCC distribution networks. Discover our divisions: IMAxtel Import & Distribution, Malabar Food Stuff, Manila Supermarket, and IMAXCLEAN.",
     url: "https://www.imaxtelglobal.ae",
-    siteName: "IMAxtel Group UAE",
+    siteName: "IMAxtel Group UAE & GCC",
     locale: "en_AE",
     type: "website",
     images: [
@@ -53,13 +57,13 @@ export const metadata: Metadata = {
         url: "/assets/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "IMAXTEL GOODS WHOLESALERS CO. L.L.C UAE"
+        alt: "IMAXTEL GOODS WHOLESALERS CO. L.L.C UAE & GCC"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "IMAXTEL GOODS WHOLESALERS CO. L.L.C UAE",
+    title: "IMAXTEL GOODS WHOLESALERS CO. L.L.C UAE & GCC",
     description: "Leading FMCG import, wholesale distribution, and retail group in the UAE & GCC.",
     images: ["/assets/images/og-image.jpg"]
   },
@@ -85,24 +89,41 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "IMAXTEL GOODS WHOLESALERS CO. L.L.C",
-    "alternateName": "IMAxtel Group UAE",
+    "alternateName": "IMAxtel Group UAE & GCC",
     "url": "https://www.imaxtelglobal.ae",
     "logo": "https://www.imaxtelglobal.ae/imaxtellogo.png",
-    "description": "Premier FMCG import, wholesale distribution, and retail business group operating in Dubai, United Arab Emirates and GCC region.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "AE",
-      "addressLocality": "Dubai",
-      "addressRegion": "Dubai",
-      "streetAddress": "Muteena Street, Burj Nahar Mall, M2 Floor, Office No. A30"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "email": "operations@imaxtelglobal.ae",
-      "areaServed": ["AE", "GCC", "KW", "SA", "OM", "BH", "QA"],
-      "availableLanguage": ["English", "Arabic"]
-    },
+    "description": "Premier FMCG import, wholesale distribution, and retail business group operating in Dubai, UAE and Salmiya, Kuwait.",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressCountry": "AE",
+        "addressLocality": "Dubai",
+        "streetAddress": "Muteena Street, Burj Nahar Mall, M2 Floor, Office No. A30"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressCountry": "KW",
+        "addressLocality": "Salmiya",
+        "streetAddress": "Office No-6, 2nd Floor, Al Zibin Complex, Salem Al Mubraak Street, Block 9"
+      }
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "general inquiries",
+        "email": "info@imaxtelintl.ae",
+        "telephone": "+971588179166",
+        "areaServed": ["AE", "KW", "GCC"],
+        "availableLanguage": ["English", "Arabic"]
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "careers & HR",
+        "email": "hr@imaxtelintl.ae",
+        "areaServed": ["AE", "KW", "GCC"],
+        "availableLanguage": ["English", "Arabic"]
+      }
+    ],
     "sameAs": [
       "https://www.imaxtelglobal.ae"
     ]
@@ -111,6 +132,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} h-full scroll-smooth`} suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -69,10 +69,11 @@ export const Header: React.FC = () => {
               <div className="flex items-center justify-center">
                 <Image
                   src={scrolled ? "/imaxtellogo.png" : "/imaxtellogo-white.png"}
-                  alt="IMAxtel Logo"
+                  alt="Imaxtel Logo"
                   width={180}
                   height={50}
                   priority
+                  unoptimized
                   style={{ width: "auto" }}
                   onError={handleLogoError}
                   className="h-10 xs:h-11 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
@@ -151,9 +152,10 @@ export const Header: React.FC = () => {
                 {logoSrc ? (
                   <Image
                     src="/imaxtellogo-white.png"
-                    alt="IMAxtel Logo"
+                    alt="Imaxtel Logo"
                     width={150}
                     height={40}
+                    unoptimized
                     style={{ width: "auto" }}
                     onError={handleLogoError}
                     className="h-9 w-auto object-contain"
@@ -214,9 +216,9 @@ export const Header: React.FC = () => {
                 Contact Us
               </Link>
               <div className="flex flex-col gap-1 text-[10px] text-white/50 font-poppins tracking-tight">
-                <span>EMAIL: operations@imaxtelintl.com</span>
+                <span>EMAIL: info@imaxtelintl.ae</span>
                 <span>WEBSITE: www.imaxtelintl.ae</span>
-                <span>© {new Date().getFullYear()} Imaxtel INTL General Trading Co.</span>
+                <span>© {new Date().getFullYear()} Imaxtel Goods Wholesalers Co. LLC. All rights reserved.</span>
               </div>
             </div>
           </motion.div>

@@ -9,7 +9,7 @@ import { InteractiveEcosystem } from "@/components/InteractiveEcosystem";
 import { GlobalSourcingMap } from "@/components/GlobalSourcingMap";
 import { InHouseBrandsShowcase } from "@/components/InHouseBrandsShowcase";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Globe, Layers, MapPin, Phone, Mail, Clock, Truck, ShoppingBag } from "lucide-react";
+import { ArrowRight, Globe, Layers, MapPin, Phone, Mail, Clock, Truck, ShoppingBag, Building2 } from "lucide-react";
 
 const Counter = ({ 
   end, 
@@ -682,7 +682,7 @@ export default function HomePage() {
                 name: "Personal Care", 
                 category: "Beauty & Care",
                 desc: "Premium skincare and hygiene items.", 
-                image: "/assets/images/products/personal-care.jpg" 
+                image: "/assets/images/products/personal-care.jpeg" 
               },
               { 
                 id: "product-household", 
@@ -922,10 +922,10 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Structured 4-Column Contact Details Grid (Matching Section 04) */}
+        {/* Structured 4-Column Contact Details Grid */}
         <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12 w-full font-poppins">
           
-          {/* Card 1: Corporate Headquarters (Primary Contact) */}
+          {/* Card 1: UAE Corporate Headquarters */}
           <motion.div
             custom={0}
             initial="hidden"
@@ -939,7 +939,7 @@ export default function HomePage() {
               <MapPin size={18} strokeWidth={2} />
             </div>
             <div className="flex flex-col min-w-0 max-w-full overflow-hidden">
-              <span className="font-poppins font-medium uppercase tracking-[0.15em] text-[11px] text-primary mb-1.5 truncate">Corporate Headquarters</span>
+              <span className="font-poppins font-medium uppercase tracking-[0.15em] text-[11px] text-primary mb-1.5 truncate">UAE Corporate HQ</span>
               <a 
                 href="https://maps.google.com/?q=Burj+Nahar+Mall+Muteena+Street+Dubai+UAE" 
                 target="_blank" 
@@ -955,9 +955,39 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* Card 2: Trade & Logistics Desk (Primary Contact) */}
+          {/* Card 2: Kuwait Regional Office */}
           <motion.div
             custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={contactCardVariants}
+            whileHover={{ y: -3, scale: 1.015 }}
+            className="group flex gap-3.5 sm:gap-4 items-start p-5 sm:p-6 bg-white border border-slate-200/80 border-l-4 border-l-primary rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:border-primary/40 cursor-default w-full min-w-0 max-w-full overflow-hidden"
+          >
+            <div className="flex items-center justify-center w-10 h-10 border border-primary/20 bg-primary/5 text-primary shrink-0 rounded-xl transition-all duration-300 group-hover:scale-105">
+              <Building2 size={18} strokeWidth={2} />
+            </div>
+            <div className="flex flex-col min-w-0 max-w-full overflow-hidden">
+              <span className="font-poppins font-medium uppercase tracking-[0.15em] text-[11px] text-primary mb-1.5 truncate">Kuwait Office</span>
+              <a 
+                href="https://maps.google.com/?q=Al+Zibin+Complex+Salem+Al+Mubarak+Street+Salmiya+Kuwait" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-primary transition-colors duration-300 group/link min-w-0 max-w-full overflow-hidden"
+              >
+                <address className="text-xs sm:text-sm text-deep-charcoal/80 not-italic font-normal leading-relaxed group-hover/link:underline break-words min-w-0 max-w-full">
+                  {companyData.contact.kuwaitAddress.map((line, idx) => (
+                    <span key={idx} className="block break-words">{line}</span>
+                  ))}
+                </address>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Trade & Phone Desk */}
+          <motion.div
+            custom={2}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -969,7 +999,7 @@ export default function HomePage() {
               <Phone size={18} strokeWidth={2} />
             </div>
             <div className="flex flex-col">
-              <span className="font-poppins font-medium uppercase tracking-[0.15em] text-[11px] text-primary mb-1.5">Trade & Logistics Desk</span>
+              <span className="font-poppins font-medium uppercase tracking-[0.15em] text-[11px] text-primary mb-1.5">Trade & Phone Desk</span>
               <div className="flex flex-col gap-1.5 font-poppins text-xs sm:text-sm text-deep-charcoal/80 font-normal leading-relaxed">
                 {companyData.contact.phones.map((phone, idx) => (
                   <a 
@@ -984,9 +1014,9 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* Card 3: Corporate Correspondence (Secondary Reference) */}
+          {/* Card 4: Emails (General & Careers) */}
           <motion.div
-            custom={2}
+            custom={3}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -998,45 +1028,34 @@ export default function HomePage() {
               <Mail size={18} strokeWidth={2} />
             </div>
             <div className="flex flex-col">
-              <span className="font-poppins font-medium uppercase tracking-[0.15em] text-[11px] text-primary mb-1.5">Corporate Correspondence</span>
-              <div className="flex flex-col gap-1.5 text-xs sm:text-sm text-deep-charcoal/80 font-normal leading-relaxed">
-                <a 
-                  href={`mailto:${companyData.contact.emails[0]}`} 
-                  className="hover:text-primary transition-colors hover:underline block break-all"
-                >
-                  {companyData.contact.emails[0]}
-                </a>
+              <span className="font-poppins font-medium uppercase tracking-[0.15em] text-[11px] text-primary mb-1.5">Corporate & Careers</span>
+              <div className="flex flex-col gap-2 text-xs sm:text-sm text-deep-charcoal/80 font-normal leading-relaxed">
+                <div>
+                  <span className="text-[10px] text-deep-charcoal/50 uppercase block">General Inquiries</span>
+                  <a 
+                    href={`mailto:${companyData.contact.infoEmail}`} 
+                    className="hover:text-primary transition-colors hover:underline block break-all font-medium"
+                  >
+                    {companyData.contact.infoEmail}
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[10px] text-deep-charcoal/50 uppercase block">Careers & HR</span>
+                  <a 
+                    href={`mailto:${companyData.contact.careersEmail}`} 
+                    className="hover:text-primary transition-colors hover:underline block break-all font-medium text-primary"
+                  >
+                    {companyData.contact.careersEmail}
+                  </a>
+                </div>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Card 4: Operations Clock (Secondary Reference) */}
-          <motion.div
-            custom={3}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={contactCardVariants}
-            whileHover={{ y: -3, scale: 1.015 }}
-            className="group flex gap-3.5 sm:gap-4 items-start p-5 sm:p-6 bg-white border border-slate-200/80 border-l-4 border-l-primary rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:border-primary/40 cursor-default w-full min-w-0 max-w-full overflow-hidden"
-          >
-            <div className="flex items-center justify-center w-10 h-10 border border-primary/20 bg-primary/5 text-primary shrink-0 rounded-xl transition-all duration-300 group-hover:scale-105">
-              <Clock size={18} strokeWidth={2} />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-poppins font-medium uppercase tracking-[0.15em] text-[11px] text-primary mb-1.5">Operations Clock</span>
-              <p className="text-xs sm:text-sm text-deep-charcoal/80 font-normal leading-relaxed">
-                Monday – Friday<br />
-                08:00 AM – 05:00 PM (GST)<br />
-                <span className="text-[10px] text-deep-charcoal/50 font-poppins uppercase block mt-1">Closed on Saturdays & Sundays</span>
-              </p>
             </div>
           </motion.div>
 
         </div>
 
         {/* Visual Map Embed Full-Width Container matching 7xl Grid */}
-        <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8 lg:px-12 w-full">
+        {/* <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8 lg:px-12 w-full">
           <div className="relative w-full h-[220px] sm:h-[280px] overflow-hidden border border-slate-200/80 rounded-2xl shadow-sm">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.2838159858737!2d55.3125219!3d25.2694119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cd1a0a520e5%3A0x6b876bb062a4d334!2sBurj%20Nahar%20Mall%2C%20Deira%2C%20Dubai%2C%20UAE!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae" 
@@ -1049,12 +1068,19 @@ export default function HomePage() {
               className="absolute inset-0 w-full h-full max-w-full"
             />
             <div className="absolute inset-0 pointer-events-none border border-primary/10" />
-            <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm border border-slate-200/80 px-4 py-2 rounded-xl flex items-center gap-2 shadow-md max-w-[calc(100%-32px)] overflow-hidden">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shrink-0" />
-              <span className="text-xs font-semibold text-deep-charcoal tracking-wide uppercase font-poppins truncate">Dubai, UAE — Burj Nahar Mall, Muteena Street</span>
+            <div className="absolute bottom-4 left-4 right-4 sm:right-auto bg-white/95 backdrop-blur-sm border border-slate-200/80 px-4 py-2.5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 shadow-md max-w-full">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shrink-0" />
+                <span className="text-xs font-semibold text-deep-charcoal tracking-wide uppercase font-poppins">Dubai HQ: Burj Nahar Mall, Muteena St</span>
+              </div>
+              <span className="hidden sm:inline text-slate-300">|</span>
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-brand-green shrink-0" />
+                <span className="text-xs font-semibold text-deep-charcoal tracking-wide uppercase font-poppins">Kuwait Office: Al Zibin Complex, Salmiya</span>
+              </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
     </div>

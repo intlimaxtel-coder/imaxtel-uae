@@ -12,6 +12,15 @@ export interface CoreValue {
   description: string;
 }
 
+export interface OfficeLocation {
+  id: string;
+  name: string;
+  country: string;
+  isHeadquarters?: boolean;
+  address: string[];
+  mapUrl?: string;
+}
+
 export interface CompanyInfo {
   name: string;
   tagline: string;
@@ -21,10 +30,14 @@ export interface CompanyInfo {
   vision: string;
   values: CoreValue[];
   stats: StatItem[];
+  offices: OfficeLocation[];
   contact: {
     address: string[];
+    kuwaitAddress: string[];
     phones: string[];
     emails: string[];
+    infoEmail: string;
+    careersEmail: string;
     website: string;
   };
 }
@@ -33,9 +46,9 @@ export const companyData: CompanyInfo = {
   name: "IMAXTEL GOODS WHOLESALERS CO. L.L.C",
   tagline: "Connecting Global Products with UAE & Regional Markets",
   established: "2010",
-  description: "IMAxtel Goods Wholesalers Co. L.L.C is a premier FMCG business group in the UAE specializing in the import, global sourcing, and regional distribution of high-quality Fast-Moving Consumer Goods. Sourcing directly from international hubs, we connect global suppliers with UAE and GCC markets through structured wholesale, retail, and logistics networks.",
+  description: "IMAxtel Goods Wholesalers Co. L.L.C is a premier FMCG business group in the UAE & GCC specializing in the import, global sourcing, and regional distribution of high-quality Fast-Moving Consumer Goods. Sourcing directly from international hubs, we connect global suppliers with UAE and GCC markets through structured wholesale, retail, and logistics networks.",
   mission: "To source premium products from trusted global suppliers and distribute them efficiently through a robust supply network across the UAE and GCC, maintaining the highest standards of quality, reliability, and client satisfaction.",
-  vision: "To become a leading global trading company in the FMCG sector based out of the UAE, recognized for delivering top-tier consumer products, dependable supply chain services, and innovative distribution solutions.",
+  vision: "To become a leading global trading company in the FMCG sector based out of the UAE & GCC, recognized for delivering top-tier consumer products, dependable supply chain services, and innovative distribution solutions.",
   values: [
     {
       title: "Integrity",
@@ -96,19 +109,53 @@ export const companyData: CompanyInfo = {
       coveragePercent: "100%"
     }
   ],
+  offices: [
+    {
+      id: "uae-hq",
+      name: "UAE Corporate Headquarters",
+      country: "United Arab Emirates",
+      isHeadquarters: true,
+      address: [
+        "Muteena Street, Burj Nahar Mall",
+        "M2 Floor, Office No. A30",
+        "Dubai, United Arab Emirates"
+      ],
+      mapUrl: "https://maps.google.com/?q=Burj+Nahar+Mall+Muteena+Street+Dubai+UAE"
+    },
+    {
+      id: "kuwait-office",
+      name: "Kuwait Regional Office",
+      country: "Kuwait",
+      isHeadquarters: false,
+      address: [
+        "Office No-6, 2nd Floor, Al Zibin Complex",
+        "Salem Al Mubraak Street, Block 9",
+        "Salmiya, Kuwait"
+      ],
+      mapUrl: "https://maps.google.com/?q=Al+Zibin+Complex+Salem+Al+Mubarak+Street+Salmiya+Kuwait"
+    }
+  ],
   contact: {
     address: [
       "Muteena Street, Burj Nahar Mall",
       "M2 Floor, Office No. A30",
       "Dubai, United Arab Emirates"
     ],
+    kuwaitAddress: [
+      "Office No-6, 2nd Floor, Al Zibin Complex",
+      "Salem Al Mubraak Street, Block 9",
+      "Salmiya, Kuwait"
+    ],
     phones: [
-      "+971 4 220 0000",
-      "+971 50 000 0000"
+      "+971 588 179166",
+      "+971 043 381870"
     ],
     emails: [
-      "operations@imaxtelglobal.ae"
+      "info@imaxtelintl.ae",
+      "hr@imaxtelintl.ae"
     ],
-    website: "www.imaxtelglobal.ae"
+    infoEmail: "info@imaxtelintl.ae",
+    careersEmail: "hr@imaxtelintl.ae",
+    website: "www.imaxtelintl.ae"
   }
 };
